@@ -11,7 +11,7 @@ const Item = () => {
   }, []);
 
   return (
-    <Box height={`calc(100vh)`}>
+    <Box height="calc(100vh)">
       <Typography>index: {index}</Typography>
     </Box>
   );
