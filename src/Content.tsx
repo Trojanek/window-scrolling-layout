@@ -1,7 +1,8 @@
-import { Virtuoso } from 'react-virtuoso';
+import { Switch, Route } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import ContentItem from './ContentItem';
+import Item from './Item';
+import List from './List';
 
 type Props = {
   appBarHight: number;
@@ -17,11 +18,14 @@ const Content = ({ appBarHight, filtersHight, containerPadding }: Props) => (
     py={`${containerPadding}px`}
   >
     <Box flexGrow={0} flexShrink={0} flexBasis={['100%', '100%', '60%']}>
-      <Virtuoso
-        useWindowScroll
-        totalCount={5000}
-        itemContent={index => <ContentItem index={index} />}
-      />
+      <Switch>
+        <Route exact path="/">
+          <List />
+        </Route>
+        <Route path="/:index">
+          <Item />
+        </Route>
+      </Switch>
     </Box>
     <Box
       display={['none', 'none', 'flex']}

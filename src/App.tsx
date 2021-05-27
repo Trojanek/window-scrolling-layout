@@ -1,3 +1,4 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Content from './Content';
@@ -12,7 +13,7 @@ const App = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <>
+    <Router>
       <Header
         hideOnScroll={isMobile}
         appBarHight={APP_BAR_HIGHT}
@@ -23,7 +24,7 @@ const App = () => {
         filtersHight={FILTERS_HIGHT}
         containerPadding={CONTAINER_PADDING}
       />
-    </>
+    </Router>
   );
 };
 
